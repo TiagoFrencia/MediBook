@@ -3,8 +3,10 @@ import axios from 'axios';
 
 
 
+import { API_BASE_URL } from '../config/api';
+
 const api = axios.create({
-    baseURL: 'http://localhost:8081/api',
+    baseURL: API_BASE_URL,
 });
 
 // Request Interceptor: Inyecta el token automáticamente
