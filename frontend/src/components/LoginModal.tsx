@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { login } from '../services/AuthService';
+import AuthService from '../services/AuthService';
 
 interface LoginModalProps {
     isOpen: boolean;
@@ -20,7 +20,7 @@ export const LoginModal = ({ isOpen, onClose, onLoginSuccess }: LoginModalProps)
         setError('');
         setLoading(true);
         try {
-            await login({ username, password });
+            await AuthService.login({ username, password });
             onLoginSuccess();
             onClose();
         } catch (err) {
