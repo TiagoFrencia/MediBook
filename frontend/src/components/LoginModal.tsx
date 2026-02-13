@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import AuthService from '../services/AuthService';
 
-const DEMO_ADMIN = { username: 'admin@medibook.com', password: 'password123' };
-const DEMO_PATIENT = { username: 'paciente@medibook.com', password: 'password123' };
+const DEMO_ADMIN = { username: 'admin@medibook.com', password: '123456' };
+const DEMO_PATIENT = { username: 'paciente@medibook.com', password: '123456' };
 
 interface LoginModalProps {
     isOpen: boolean;

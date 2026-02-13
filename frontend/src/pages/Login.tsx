@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import AuthService from '../services/AuthService';
 import { Stethoscope, Lock, User } from 'lucide-react';
 
-const DEMO_ADMIN = { username: 'admin@medibook.com', password: 'password123' };
-const DEMO_PATIENT = { username: 'paciente@medibook.com', password: 'password123' };
+const DEMO_ADMIN = { username: 'admin@medibook.com', password: '123456' };
+const DEMO_PATIENT = { username: 'paciente@medibook.com', password: '123456' };
 
 export const Login = () => {
     const [username, setUsername] = useState('');
