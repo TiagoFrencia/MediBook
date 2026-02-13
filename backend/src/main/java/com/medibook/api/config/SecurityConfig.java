@@ -42,6 +42,9 @@ public class SecurityConfig {
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(auth -> auth
+                        // 0. Permitir OPTIONS para preflight checks de CORS (Vital para Vercel)
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+
                         // 1. Acceso Público (Login/Registro)
                         .requestMatchers("/api/auth/**").permitAll()
 
