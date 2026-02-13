@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import AuthService from '../services/AuthService';
 
+const DEMO_ADMIN = { username: 'admin@medibook.com', password: 'password123' };
+const DEMO_PATIENT = { username: 'paciente@medibook.com', password: 'password123' };
+
 interface LoginModalProps {
     isOpen: boolean;
     onClose: () => void;
@@ -84,6 +87,50 @@ export const LoginModal = ({ isOpen, onClose, onLoginSuccess }: LoginModalProps)
                         >
                             {loading ? 'Ingresando...' : 'Ingresar'}
                         </button>
+                    </div>
+
+                    {/* Sección de Credenciales Demo */}
+                    <div className="mt-6 pt-6 border-t border-gray-100">
+                        <div className="bg-blue-50 border border-blue-200 rounded-md p-4">
+                            <h3 className="text-sm font-semibold text-blue-800 mb-3 flex items-center">
+                                <span className="mr-2">🔐</span> Credenciales Demo
+                            </h3>
+                            <div className="grid grid-cols-1 gap-3">
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        setUsername(DEMO_ADMIN.username);
+                                        setPassword(DEMO_ADMIN.password);
+                                    }}
+                                    className="flex items-center justify-between w-full px-3 py-2 bg-white border border-blue-200 rounded text-sm text-blue-700 hover:bg-blue-100 transition-colors"
+                                >
+                                    <div className="flex items-center">
+                                        <span className="text-lg mr-2">👨‍⚕️</span>
+                                        <div className="text-left">
+                                            <div className="font-medium">Rol Doctor / Admin</div>
+                                            <div className="text-xs text-blue-500 opacity-75">Click para autocompletar</div>
+                                        </div>
+                                    </div>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        setUsername(DEMO_PATIENT.username);
+                                        setPassword(DEMO_PATIENT.password);
+                                    }}
+                                    className="flex items-center justify-between w-full px-3 py-2 bg-white border border-blue-200 rounded text-sm text-blue-700 hover:bg-blue-100 transition-colors"
+                                >
+                                    <div className="flex items-center">
+                                        <span className="text-lg mr-2">🤒</span>
+                                        <div className="text-left">
+                                            <div className="font-medium">Rol Paciente</div>
+                                            <div className="text-xs text-blue-500 opacity-75">Click para autocompletar</div>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
