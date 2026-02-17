@@ -1,0 +1,14 @@
+name: Keep Alive Render
+
+on:
+  schedule:
+    - cron: '*/10 * * * *' # Se ejecuta cada 10 minutos
+  workflow_dispatch: # Permite ejecutarlo manualmente para probar
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wake up Render
+        run: |
+          curl -I https://medibook-b3pl.onrender.com/api/patients
